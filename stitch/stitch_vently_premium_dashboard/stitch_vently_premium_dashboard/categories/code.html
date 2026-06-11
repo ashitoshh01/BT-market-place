@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vently - Explore Categories</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#4c4452",
+                        "surface-container-lowest": "#0c0e11",
+                        "primary-fixed": "#f1dbff",
+                        "on-tertiary-container": "#eeaf68",
+                        "secondary-container": "#00a572",
+                        "surface-tint": "#dfb7ff",
+                        "primary": "#dfb7ff",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#661aa3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-container-highest": "#333538",
+                        "surface-variant": "#333538",
+                        "surface": "#111317",
+                        "surface-container-low": "#1a1c1f",
+                        "on-secondary": "#003824",
+                        "primary-fixed-dim": "#dfb7ff",
+                        "background": "#111317",
+                        "on-secondary-fixed": "#002113",
+                        "secondary": "#4edea3",
+                        "on-error": "#690005",
+                        "on-primary-container": "#d7a8ff",
+                        "on-primary-fixed": "#2d0050",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#6b21a8",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-background": "#e2e2e6",
+                        "surface-dim": "#111317",
+                        "surface-bright": "#37393d",
+                        "on-primary": "#4a007f",
+                        "tertiary-fixed-dim": "#faba72",
+                        "surface-container": "#1e2023",
+                        "tertiary-container": "#6d4100",
+                        "on-surface": "#e2e2e6",
+                        "surface-container-high": "#282a2d",
+                        "secondary-fixed": "#6ffbbe",
+                        "tertiary-fixed": "#ffddbb",
+                        "inverse-on-surface": "#2f3034",
+                        "on-tertiary": "#482900",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-secondary-container": "#00311f",
+                        "on-surface-variant": "#cfc2d4",
+                        "inverse-surface": "#e2e2e6",
+                        "error-container": "#93000a",
+                        "inverse-primary": "#803abd",
+                        "tertiary": "#faba72",
+                        "outline": "#988d9e"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        "container-padding": "24px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "title-md": ["20px", { lineHeight: "28px", fontWeight: "500" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0c0e11; /* Fallback for surface-container-lowest */
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-border-card {
+            position: relative;
+            background: rgba(17, 19, 23, 0.6); /* surface with opacity */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 0.75rem; /* xl */
+            overflow: hidden;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gradient-border-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 0.75rem;
+            padding: 1px; /* border width */
+            background: linear-gradient(135deg, #4edea3, #dfb7ff);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        .gradient-border-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(223, 183, 255, 0.2);
+        }
+        .gradient-border-card:hover::before {
+            opacity: 1;
+        }
+        
+        /* Subtle glow effect for icons */
+        .icon-glow {
+            filter: drop-shadow(0 0 8px rgba(223, 183, 255, 0.4));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen flex flex-col relative pb-24 md:pb-0">
+<!-- Top App Bar (Desktop Only) -->
+<header class="hidden md:flex bg-surface/80 backdrop-blur-xl border-b border-white/10 fixed top-0 w-full z-50 justify-between items-center px-6 h-16 max-w-7xl mx-auto cursor-pointer active:scale-95 transition-transform">
+<div class="flex items-center gap-4 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="bubble_chart" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bubble_chart</span>
+<span class="font-headline-lg text-headline-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Vently</span>
+</div>
+<nav class="flex gap-8">
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity font-title-md text-title-md" href="#">Home</a>
+<a class="text-primary hover:opacity-80 transition-opacity font-title-md text-title-md" href="#">Categories</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity font-title-md text-title-md" href="#">Chat</a>
+<a class="text-on-surface-variant hover:opacity-80 transition-opacity font-title-md text-title-md" href="#">Settings</a>
+</nav>
+<div class="hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant text-2xl" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Main Layout Container -->
+<div class="flex-1 flex max-w-[1440px] mx-auto w-full pt-8 md:pt-24 px-margin-mobile md:px-container-padding gap-gutter">
+<!-- Side Navigation (Desktop Only) -->
+<aside class="hidden md:flex flex-col py-20 px-4 space-y-2 bg-surface/60 backdrop-blur-2xl border-r border-white/10 shadow-2xl h-full w-72 fixed left-0 top-0 z-40 duration-200 ease-in-out">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8 px-4">Categories</h2>
+<nav class="flex flex-col gap-2 w-full">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-body-lg text-body-lg">Relationships</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-primary-container/30 text-primary border-l-4 border-primary hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="work" data-weight="fill" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="font-body-lg text-body-lg">Career</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-body-lg text-body-lg">Mental Health</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 hover:bg-white/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-body-lg text-body-lg">Spiritual</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full md:pl-72 flex flex-col gap-8 pb-32">
+<header class="mb-4">
+<h1 class="font-display-lg text-display-lg md:text-[48px] text-[32px] text-on-surface mb-2 tracking-tight">Explore Categories</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Find a safe space to vent, share, and connect anonymously. Select a topic that resonates with your current state of mind.</p>
+</header>
+<!-- Bento Grid of Categories -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Category Card 1: Relationships -->
+<a class="gradient-border-card p-8 flex flex-col items-center justify-center text-center group min-h-[240px]" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-primary icon-glow" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Relationships</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">Navigate love, friendships, and boundaries.</p>
+</a>
+<!-- Category Card 2: Career -->
+<a class="gradient-border-card p-8 flex flex-col items-center justify-center text-center group min-h-[240px] md:col-span-2 xl:col-span-1" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-secondary icon-glow" data-icon="work" data-weight="fill" style="font-variation-settings: 'FILL' 1;">work</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Career</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">Workplace stress, ambitions, and burnout.</p>
+</a>
+<!-- Category Card 3: Family -->
+<a class="gradient-border-card p-8 flex flex-col items-center justify-center text-center group min-h-[240px]" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-tertiary icon-glow" data-icon="family_restroom" data-weight="fill" style="font-variation-settings: 'FILL' 1;">family_restroom</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Family</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">Dynamics, expectations, and history.</p>
+</a>
+<!-- Category Card 4: Personal Growth -->
+<a class="gradient-border-card p-8 flex flex-col items-center justify-center text-center group min-h-[240px] md:col-span-2 lg:col-span-3 xl:col-span-2 relative overflow-hidden" href="#">
+<!-- Background subtle graphic -->
+<div class="absolute -bottom-10 -right-10 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[150px] text-primary" data-icon="psychology">psychology</span>
+</div>
+<div class="w-16 h-16 rounded-full bg-surface-container-high/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary icon-glow" data-icon="psychology" data-weight="fill" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2 relative z-10">Personal Growth</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80 max-w-sm relative z-10">Self-discovery, habits, and overcoming internal obstacles.</p>
+</a>
+<!-- Category Card 5: Finance -->
+<a class="gradient-border-card p-8 flex flex-col items-center justify-center text-center group min-h-[240px]" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-secondary icon-glow" data-icon="payments" data-weight="fill" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Finance</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">Money anxiety and financial goals.</p>
+</a>
+<!-- Category Card 6: Health & Fitness -->
+<a class="gradient-border-card p-8 flex flex-col items-center justify-center text-center group min-h-[240px]" href="#">
+<div class="w-16 h-16 rounded-full bg-surface-container-high/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-tertiary icon-glow" data-icon="fitness_center" data-weight="fill" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Health</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">Physical well-being and body image.</p>
+</a>
+</div>
+</main>
+</div>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface/80 backdrop-blur-lg rounded-t-xl shadow-lg active:scale-90 transition-all">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary p-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-[10px]">Home</span>
+</a>
+<!-- Categories (Active) -->
+<a class="flex flex-col items-center gap-1 text-primary scale-110 p-2" href="#">
+<div class="relative">
+<span class="material-symbols-outlined" data-icon="grid_view" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<!-- Active dot indicator -->
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"></div>
+</div>
+<span class="font-label-caps text-[10px]">Categories</span>
+</a>
+<!-- Chat (Inactive) -->
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary p-2" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-label-caps text-[10px]">Chat</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary p-2" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-[10px]">Settings</span>
+</a>
+</nav>
+</body></html>

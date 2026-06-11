@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vently - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        body {
+            background-color: #0c0e11; /* surface-container-lowest approx */
+            color: #e2e2e6; /* on-surface */
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Glassmorphism utilities */
+        .glass-card {
+            background: rgba(51, 53, 56, 0.4); /* surface-container-highest with opacity */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.75rem; /* xl */
+        }
+        
+        .glass-card-strong {
+            background: rgba(51, 53, 56, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 0.75rem;
+        }
+
+        /* Gradient Button */
+        .btn-gradient {
+            background: linear-gradient(135deg, #dfb7ff 0%, #4edea3 100%);
+            color: #2d0050; /* on-primary-fixed */
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(223, 183, 255, 0.3);
+        }
+        .btn-gradient:active {
+            transform: translateY(0);
+        }
+
+        /* Glow effects */
+        .glow-primary {
+            position: relative;
+        }
+        .glow-primary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(223, 183, 255, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#4c4452",
+                        "surface-container-lowest": "#0c0e11",
+                        "primary-fixed": "#f1dbff",
+                        "on-tertiary-container": "#eeaf68",
+                        "secondary-container": "#00a572",
+                        "surface-tint": "#dfb7ff",
+                        "primary": "#dfb7ff",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#661aa3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface-container-highest": "#333538",
+                        "surface-variant": "#333538",
+                        "surface": "#111317",
+                        "surface-container-low": "#1a1c1f",
+                        "on-secondary": "#003824",
+                        "primary-fixed-dim": "#dfb7ff",
+                        "background": "#111317",
+                        "on-secondary-fixed": "#002113",
+                        "secondary": "#4edea3",
+                        "on-error": "#690005",
+                        "on-primary-container": "#d7a8ff",
+                        "on-primary-fixed": "#2d0050",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#6b21a8",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-background": "#e2e2e6",
+                        "surface-dim": "#111317",
+                        "surface-bright": "#37393d",
+                        "on-primary": "#4a007f",
+                        "tertiary-fixed-dim": "#faba72",
+                        "surface-container": "#1e2023",
+                        "tertiary-container": "#6d4100",
+                        "on-surface": "#e2e2e6",
+                        "surface-container-high": "#282a2d",
+                        "secondary-fixed": "#6ffbbe",
+                        "tertiary-fixed": "#ffddbb",
+                        "inverse-on-surface": "#2f3034",
+                        "on-tertiary": "#482900",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-secondary-container": "#00311f",
+                        "on-surface-variant": "#cfc2d4",
+                        "inverse-surface": "#e2e2e6",
+                        "error-container": "#93000a",
+                        "inverse-primary": "#803abd",
+                        "tertiary": "#faba72",
+                        "outline": "#988d9e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col pt-16 pb-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flat no shadows flex justify-between items-center px-6 h-16 max-w-7xl mx-auto">
+<div class="flex items-center gap-4 text-primary cursor-pointer active:scale-95 transition-transform hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">bubble_chart</span>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Vently
+        </div>
+<div class="flex items-center gap-4 text-on-surface-variant cursor-pointer active:scale-95 transition-transform hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-md mx-auto px-margin-mobile flex flex-col gap-6 pt-6">
+<!-- Hero: Instant Match -->
+<section class="glass-card-strong p-8 flex flex-col items-center justify-center text-center gap-4 glow-primary mt-4">
+<h1 class="font-title-md text-title-md text-on-surface">Find your sanctuary.</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Connect anonymously with someone who understands right now.</p>
+<button class="btn-gradient w-full rounded-full py-4 font-title-md text-title-md shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">wifi_tethering</span>
+                Instant Match
+            </button>
+</section>
+<!-- Discover Categories (Bento-ish) -->
+<section class="flex flex-col gap-3">
+<div class="flex justify-between items-end mb-1">
+<h2 class="font-title-md text-title-md text-primary">Discover Categories</h2>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Card 1 -->
+<div class="glass-card p-4 flex flex-col gap-3 items-start justify-between aspect-square hover:bg-white/5 transition-colors cursor-pointer active:scale-95 duration-200">
+<div class="w-10 h-10 rounded-full bg-primary-container/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">Relationships</span>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-4 flex flex-col gap-3 items-start justify-between aspect-square hover:bg-white/5 transition-colors cursor-pointer active:scale-95 duration-200">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">work</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">Career</span>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-4 flex flex-col gap-3 items-start justify-between aspect-square hover:bg-white/5 transition-colors cursor-pointer active:scale-95 duration-200">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">Mental Health</span>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-4 flex flex-col gap-3 items-start justify-between aspect-square hover:bg-white/5 transition-colors cursor-pointer active:scale-95 duration-200">
+<div class="w-10 h-10 rounded-full bg-primary-container/30 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">Spiritual</span>
+</div>
+</div>
+</section>
+<!-- Recent Vents Feed -->
+<section class="flex flex-col gap-4 mt-2">
+<h2 class="font-title-md text-title-md text-primary">Recent Vents</h2>
+<!-- Vent Item 1 -->
+<div class="glass-card p-5 flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(78,222,163,0.6)]"></div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Listening</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">Feeling completely overwhelmed at work today. It feels like no matter how much I do, it's never enough. Just need to let this out into the void.</p>
+<div class="flex gap-2 mt-1">
+<span class="px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary/20 font-label-caps text-label-caps text-secondary">Career</span>
+<span class="px-3 py-1 rounded-full bg-primary-container/20 border border-primary/20 font-label-caps text-label-caps text-primary">Stress</span>
+</div>
+</div>
+<!-- Vent Item 2 -->
+<div class="glass-card p-5 flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(250,186,114,0.6)]"></div>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">15m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">Had a massive fight with my partner over something so small. Why does communication have to be this hard sometimes?</p>
+<div class="flex gap-2 mt-1">
+<span class="px-3 py-1 rounded-full bg-primary-container/20 border border-primary/20 font-label-caps text-label-caps text-primary">Relationships</span>
+</div>
+</div>
+<!-- Vent Item 3 -->
+<div class="glass-card p-5 flex flex-col gap-3 opacity-70">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Closed</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">This vent has found peace and is now closed.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface/80 backdrop-blur-lg border-t border-white/10 shadow-lg rounded-t-xl">
+<!-- Home (Active) -->
+<div class="flex flex-col items-center gap-1 cursor-pointer text-primary scale-110 active:scale-90 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</div>
+<!-- Categories -->
+<div class="flex flex-col items-center gap-1 cursor-pointer text-on-surface-variant hover:text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-label-caps">Categories</span>
+</div>
+<!-- Chat -->
+<div class="flex flex-col items-center gap-1 cursor-pointer text-on-surface-variant hover:text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-caps text-label-caps">Chat</span>
+</div>
+<!-- Settings -->
+<div class="flex flex-col items-center gap-1 cursor-pointer text-on-surface-variant hover:text-primary active:scale-90 transition-all">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</div>
+</nav>
+</body></html>
