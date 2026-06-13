@@ -52,7 +52,7 @@ export default function Onboarding() {
             </div>
             <div>
               <h3 className="font-title-md text-title-md text-on-surface">I need to Vent</h3>
-              <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Talk anonymously with a listener about what's on your mind.</p>
+              <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">Talk anonymously with a listener about what&apos;s on your mind.</p>
             </div>
           </div>
 
