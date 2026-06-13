@@ -1,6 +1,6 @@
 "use client";
 
-import React, from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
 
 export default function Categories() {
@@ -61,37 +61,43 @@ export default function Categories() {
           <style dangerouslySetInnerHTML={{ __html: `
             .gradient-border-card {
               position: relative;
-              background: rgba(17, 19, 23, 0.6);
-              backdrop-filter: blur(16px);
-              -webkit-backdrop-filter: blur(16px);
-              border-radius: 0.75rem;
+              background: rgba(20, 20, 28, 0.8);
+              backdrop-filter: blur(20px);
+              -webkit-backdrop-filter: blur(20px);
+              border-radius: 1rem;
               overflow: hidden;
               z-index: 1;
-              transition: transform 0.3s ease, box-shadow 0.3s ease;
+              transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
             }
             .gradient-border-card::before {
               content: "";
               position: absolute;
               inset: 0;
-              border-radius: 0.75rem;
-              padding: 1px;
-              background: linear-gradient(135deg, #4edea3, #dfb7ff);
+              border-radius: 1rem;
+              padding: 2px;
+              background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
               -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
               -webkit-mask-composite: xor;
               mask-composite: exclude;
-              opacity: 0.5;
-              transition: opacity 0.3s ease;
+              opacity: 0.7;
+              transition: opacity 0.4s ease, filter 0.4s ease;
               z-index: -1;
             }
             .gradient-border-card:hover {
-              transform: translateY(-4px);
-              box-shadow: 0 10px 30px -10px rgba(223, 183, 255, 0.2);
+              transform: translateY(-6px) scale(1.02);
+              box-shadow: 0 15px 40px rgba(255, 87, 185, 0.3), inset 0 0 20px rgba(0, 229, 255, 0.1);
             }
             .gradient-border-card:hover::before {
               opacity: 1;
+              filter: drop-shadow(0 0 10px rgba(255, 87, 185, 0.8));
             }
             .icon-glow {
-              filter: drop-shadow(0 0 8px rgba(223, 183, 255, 0.4));
+              filter: drop-shadow(0 0 12px var(--color-primary));
+              animation: floatIcon 3s ease-in-out infinite;
+            }
+            @keyframes floatIcon {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-5px); }
             }
           `}} />
 

@@ -109,7 +109,7 @@ export default function Settings() {
                 </div>
                 <div>
                   <div className="font-title-md text-[16px] text-on-surface">Show Online Status</div>
-                  <div className="font-body-sm text-[14px] text-on-surface-variant">Let others know when you're active</div>
+                  <div className="font-body-sm text-[14px] text-on-surface-variant">Let others know when you&apos;re active</div>
                 </div>
               </div>
               <div 

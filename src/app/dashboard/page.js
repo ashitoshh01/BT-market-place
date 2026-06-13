@@ -73,34 +73,34 @@ export default function Dashboard() {
 
         {/* Recent Vents Feed */}
         <section className="flex flex-col gap-4 mt-2">
-          <h2 className="font-title-md text-title-md text-primary">Recent Vents</h2>
+          <h2 className="font-title-md text-title-md text-primary text-glow">Recent Vents</h2>
           {/* Vent Item 1 */}
-          <div className="glass-card p-5 flex flex-col gap-3">
+          <div className="glass-card p-5 flex flex-col gap-3 glow-primary">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(78,222,163,0.6)]"></div>
-                <span className="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Listening</span>
+                <div className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_15px_var(--color-secondary)] animate-pulse"></div>
+                <span className="font-label-caps text-label-caps text-secondary uppercase tracking-wider text-glow">Listening</span>
               </div>
               <span className="font-body-sm text-body-sm text-on-surface-variant">2m ago</span>
             </div>
-            <p className="font-body-sm text-body-sm text-on-surface leading-relaxed">Feeling completely overwhelmed at work today. It feels like no matter how much I do, it's never enough. Just need to let this out into the void.</p>
+            <p className="font-body-sm text-body-sm text-on-surface leading-relaxed">Feeling completely overwhelmed at work today. It feels like no matter how much I do, it&apos;s never enough. Just need to let this out into the void.</p>
             <div className="flex gap-2 mt-1">
-              <span className="px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary/20 font-label-caps text-label-caps text-secondary">Career</span>
-              <span className="px-3 py-1 rounded-full bg-primary-container/20 border border-primary/20 font-label-caps text-label-caps text-primary">Stress</span>
+              <span className="px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary/50 font-label-caps text-label-caps text-secondary shadow-[0_0_10px_rgba(0,229,255,0.2)]">Career</span>
+              <span className="px-3 py-1 rounded-full bg-primary-container/20 border border-primary/50 font-label-caps text-label-caps text-primary shadow-[0_0_10px_rgba(255,87,185,0.2)]">Stress</span>
             </div>
           </div>
           {/* Vent Item 2 */}
-          <div className="glass-card p-5 flex flex-col gap-3">
+          <div className="glass-card p-5 flex flex-col gap-3 glow-primary" style={{ animationDelay: '0.5s' }}>
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(250,186,114,0.6)]"></div>
-                <span className="font-label-caps text-label-caps text-tertiary uppercase tracking-wider">Active</span>
+                <div className="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_15px_var(--color-tertiary)] animate-pulse"></div>
+                <span className="font-label-caps text-label-caps text-tertiary uppercase tracking-wider text-glow">Active</span>
               </div>
               <span className="font-body-sm text-body-sm text-on-surface-variant">15m ago</span>
             </div>
             <p className="font-body-sm text-body-sm text-on-surface leading-relaxed">Had a massive fight with my partner over something so small. Why does communication have to be this hard sometimes?</p>
             <div className="flex gap-2 mt-1">
-              <span className="px-3 py-1 rounded-full bg-primary-container/20 border border-primary/20 font-label-caps text-label-caps text-primary">Relationships</span>
+              <span className="px-3 py-1 rounded-full bg-primary-container/20 border border-primary/50 font-label-caps text-label-caps text-primary shadow-[0_0_10px_rgba(255,87,185,0.2)]">Relationships</span>
             </div>
           </div>
         </section>

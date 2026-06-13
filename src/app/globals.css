@@ -7,20 +7,20 @@
   --color-on-tertiary-container: #eeaf68;
   --color-secondary-container: #00a572;
   --color-surface-tint: #dfb7ff;
-  --color-primary: #dfb7ff;
-  --color-error: #ffb4ab;
+  --color-primary: #ff57b9; /* Crazy hot pink! */
+  --color-error: #ff3b30;
   --color-on-primary-fixed-variant: #661aa3;
   --color-on-secondary-fixed-variant: #005236;
   --color-on-tertiary-fixed: #2b1700;
   --color-surface-container-highest: #333538;
   --color-surface-variant: #333538;
-  --color-surface: #111317;
-  --color-surface-container-low: #1a1c1f;
+  --color-surface: #0a0a0f; /* Darker, cooler background */
+  --color-surface-container-low: #14141c;
   --color-on-secondary: #003824;
   --color-primary-fixed-dim: #dfb7ff;
-  --color-background: #111317;
+  --color-background: #0a0a0f;
   --color-on-secondary-fixed: #002113;
-  --color-secondary: #4edea3;
+  --color-secondary: #00e5ff; /* Crazy cyan! */
   --color-on-error: #690005;
   --color-on-primary-container: #d7a8ff;
   --color-on-primary-fixed: #2d0050;
@@ -46,7 +46,7 @@
   --color-inverse-surface: #e2e2e6;
   --color-error-container: #93000a;
   --color-inverse-primary: #803abd;
-  --color-tertiary: #faba72;
+  --color-tertiary: #ffdd00; /* Bright yellow! */
   --color-outline: #988d9e;
 
   --spacing-container-padding: 24px;
@@ -113,34 +113,59 @@
 @layer components {
   /* Glassmorphism utilities */
   .glass-card {
-    background: rgba(51, 53, 56, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 0.75rem;
+    background: rgba(20, 20, 28, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   
-  .glass-card-strong {
-    background: rgba(51, 53, 56, 0.6);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 0.75rem;
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(255, 87, 185, 0.15); /* Primary color glow */
+    transform: translateY(-2px);
   }
 
-  /* Gradient Button */
+  .glass-card-strong {
+    background: rgba(20, 20, 28, 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 87, 185, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(255, 87, 185, 0.2);
+  }
+
+  /* Crazy Gradient Button */
   .btn-gradient {
-    background: linear-gradient(135deg, #dfb7ff 0%, #4edea3 100%);
-    color: #2d0050;
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-tertiary) 100%);
+    background-size: 200% auto;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 87, 185, 0.4);
+    animation: gradientShift 3s ease infinite;
   }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
   .btn-gradient:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(223, 183, 255, 0.3);
+    opacity: 1;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.5); /* Secondary color glow */
   }
+
   .btn-gradient:active {
-    transform: translateY(0);
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(255, 87, 185, 0.4);
   }
 
   /* Glow effects */
@@ -154,8 +179,18 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(223, 183, 255, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 87, 185, 0.25) 0%, transparent 60%);
     z-index: -1;
     pointer-events: none;
+    animation: pulseGlow 4s infinite alternate;
+  }
+
+  @keyframes pulseGlow {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px var(--color-primary), 0 0 30px var(--color-secondary);
   }
 }

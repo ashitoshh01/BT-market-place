@@ -24,10 +24,10 @@ export default function LandingPage() {
       </header>
 
       <main className="flex-1 w-full max-w-4xl mx-auto px-6 flex flex-col items-center justify-center text-center gap-6 pt-16">
-        <h1 className="font-display-lg text-[48px] md:text-[64px] font-bold text-on-surface mb-2 tracking-tight leading-tight">
-          Need someone to <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">listen?</span>
+        <h1 className="font-display-lg text-[48px] md:text-[64px] font-bold text-on-surface mb-2 tracking-tight leading-tight glow-primary">
+          Need someone to <span className="bg-gradient-to-r from-primary via-tertiary to-secondary bg-clip-text text-transparent" style={{ animation: "gradientShift 3s ease infinite", backgroundSize: "200% auto" }}>listen?</span>
         </h1>
-        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
+        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8 text-glow">
           Share your thoughts, frustrations, and stress anonymously with real human listeners. No judgment. No identity revealed.
         </p>
         
@@ -42,21 +42,21 @@ export default function LandingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left mt-8">
-          <div className="glass-card p-6 flex flex-col gap-3 hover:scale-105 transition-transform duration-300">
-            <span className="material-symbols-outlined text-3xl text-primary mb-2">shield_lock</span>
-            <h3 className="font-title-md text-title-md text-on-surface">100% Anonymous</h3>
+          <div className="glass-card p-6 flex flex-col gap-3 hover:scale-105 transition-transform duration-300 glow-primary">
+            <span className="material-symbols-outlined text-4xl text-primary mb-2 text-glow">shield_lock</span>
+            <h3 className="font-title-md text-title-md text-on-surface text-glow">100% Anonymous</h3>
             <p className="font-body-sm text-body-sm text-on-surface-variant">Your identity is completely hidden. Generate an anonymous username and start talking.</p>
           </div>
           
-          <div className="glass-card p-6 flex flex-col gap-3 hover:scale-105 transition-transform duration-300">
-            <span className="material-symbols-outlined text-3xl text-secondary mb-2">group</span>
-            <h3 className="font-title-md text-title-md text-on-surface">Real Human Listeners</h3>
+          <div className="glass-card p-6 flex flex-col gap-3 hover:scale-105 transition-transform duration-300 glow-primary">
+            <span className="material-symbols-outlined text-4xl text-secondary mb-2 text-glow">group</span>
+            <h3 className="font-title-md text-title-md text-on-surface text-glow">Real Human Listeners</h3>
             <p className="font-body-sm text-body-sm text-on-surface-variant">Connect instantly with verified people who are ready to listen without judgment.</p>
           </div>
           
-          <div className="glass-card p-6 flex flex-col gap-3 hover:scale-105 transition-transform duration-300">
-            <span className="material-symbols-outlined text-3xl text-[#faba72] mb-2">bolt</span>
-            <h3 className="font-title-md text-title-md text-on-surface">Instant Matches</h3>
+          <div className="glass-card p-6 flex flex-col gap-3 hover:scale-105 transition-transform duration-300 glow-primary">
+            <span className="material-symbols-outlined text-4xl text-tertiary mb-2 text-glow">bolt</span>
+            <h3 className="font-title-md text-title-md text-on-surface text-glow">Instant Matches</h3>
             <p className="font-body-sm text-body-sm text-on-surface-variant">No waiting around. Get matched with a listener within minutes and start venting.</p>
           </div>
         </div>
